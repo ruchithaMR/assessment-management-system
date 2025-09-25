@@ -1,0 +1,31 @@
+{
+  "name": "assessment-management-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Backend/index.js",
+  "scripts": {
+    "start": "node Backend/index.js",
+    "backend": "node Backend/index.js",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently -k -n BACKEND,FRONTEND -c green,cyan \"npm:backend\" \"npm:frontend\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "puppeteer": "^24.22.2",
+    "handlebars": "^4.7.8",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "as_hr_02": {
+    "template": "default.hbs",
+    "dataSource": { "type": "local" },
+    "sections": {
+      "Key Body Vitals": {
+        "Overall Health Score": { "path": "accuracy", "format": "percent", "classify": [
+          { "lte": 50, "label": "Poor" },
+          { "gt": 50, "lte": 75, "label": "Average" },
+          { "gt": 75, "label": "Good" }
+        ]},
+        "Heart Rate": "vitalsMap.vitals.heart_rate",
+        "Blood Pressure Systolic": "vitalsMap.vitals.bp_sys",
+        "Blood Pressure Diastolic": "vitalsMap.vitals.bp_dia",
+        "Oxygen Saturation": "vitalsMap.vitals.oxy_sat_prcnt",
+        "Respiration Rate": "vitalsMap.vitals.resp_rate"
+      },
+      "Heart Health": {
+        "HR Max": "vitalsMap.metadata.heart_scores.HRMax",
+        "Stress Index": { "path": "vitalsMap.metadata.heart_scores.stress_index", "classify": [
+          { "lte": 1.5, "label": "Low" },
+          { "gt": 1.5, "lte": 3, "label": "Moderate" },
+          { "gt": 3, "label": "High" }
+        ]}
+      },
+      "Stress Level": {
+        "pNN50%": "vitalsMap.metadata.heart_scores.pNN50_per",
+        "RMSSD": "vitalsMap.metadata.heart_scores.rmssd",
+        "SDNN": "vitalsMap.metadata.heart_scores.sdnn"
+      },
+      "Fitness Levels": {
+        "Cardiovascular Endurance (Jog time)": "exercises[id=235].setList[0].time",
+        "Squat Reps": "exercises[id=259].setList[0].totalReps"
+      },
+      "Posture": {
+        "Frontal Posture Score": "exercises[id=73].analysisScore",
+        "Side Posture Score": "exercises[id=74].analysisScore"
+      },
+      "Body Composition": {
+        "BMI": { "path": "bodyCompositionData.BMI", "classify": [
+          { "lt": 18.5, "label": "Underweight" },
+          { "gte": 18.5, "lt": 25, "label": "Normal" },
+          { "gte": 25, "lt": 30, "label": "Overweight" },
+          { "gte": 30, "label": "Obese" }
+        ]},
+        "Body Fat %": "vitalsMap.metadata.physiological_scores.bodyfat",
+        "Weight": "weight",
+        "Height": "height"
+      }
+    }
+  },
+  "as_card_01": {
+    "template": "default.hbs",
+    "dataSource": { "type": "local" },
+    "sections": {
+      "Key Body Vitals": {
+        "Overall Health Score": { "path": "accuracy", "format": "percent" },
+        "Heart Rate": "vitalsMap.vitals.heart_rate",
+        "Blood Pressure Systolic": "vitalsMap.vitals.bp_sys",
+        "Blood Pressure Diastolic": "vitalsMap.vitals.bp_dia"
+      },
+      "Cardiovascular Endurance": {
+        "Jog Test Time": "exercises[id=235].setList[0].time",
+        "Heart Utilized %": "vitalsMap.metadata.heart_scores.heart_utilized"
+      },
+      "Body Composition": {
+        "BMI": "bodyCompositionData.BMI",
+        "Lean Mass": "bodyCompositionData.LM"
+      }
+    }
+  }
+}
